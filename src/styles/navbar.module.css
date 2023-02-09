@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #FAF1E6;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+}
+
+.navbar .nav_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 2em;
+}
+
+.navbar .nav_container .nav_item {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .nav_container .nav_item .link {
+  text-decoration: none;
+  color: black;
+}
+/*# sourceMappingURL=navbar.module.css.map */

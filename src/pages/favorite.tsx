@@ -1,40 +1,32 @@
+import { FavoritesContext } from '@/components/FavoriteContext';
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { Product } from '../types/Product';
-import React, { useState, useEffect, useContext } from 'react';
+import Loading from '@/components/Loading';
+import {useContext, useState, useEffect } from 'react';
+import Card, { CardContainer, CardContent, CardDetail, CardImage, CardItem, CardLeftRight, CardTitle, FavButton } from '@/components/Card';
 import Link from 'next/link';
 import Router from 'next/router';
-import  {FavoritesContext}  from '@/components/FavoriteContext';
-import Loading from '@/components/Loading';
-import style from '@/styles/main.module.scss'
-import Card, { CardContainer, CardContent, CardDetail, CardImage, CardItem, CardLeftRight, CardTitle, FavButton } from '@/components/Card';
-export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { favorites, addToFavorites } = useContext(FavoritesContext);
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('https://dummyjson.com/products?limit=80&skip=0');
-      const response = await res.json();
-      const { products } = response;
-      setProducts(products);
-      setLoading(false);
-    }
-    fetchData();
-  }, []);
-
-
-  return (
-    <>
+export default function Favorite(){
+    const { favorites, addToFavorites } = useContext(FavoritesContext);
+    const [loading, setLoading] = useState(false);
+    
+    useEffect(() => {
+      if (!favorites) {
+        setLoading(true);
+      } else {
+        setLoading(false);
+      }
+    }, [favorites]);
+    return (
+      <>
       <Navbar/>  
       <main>
         {
-          loading ? <Loading /> :(
+          loading ? <Loading/> :(
             <CardContainer >
-            {products.map((product) => (
+            {favorites.map((product) => (
               <Card key={product.id}>
-                
-                <Link  href={{
+                                <Link  href={{
                   pathname : '/detail/' + product.id,
                   query :{
                     id: product.id,
@@ -59,7 +51,7 @@ export default function Home() {
                       <CardItem>Category : {product.category}</CardItem>
                     </CardLeftRight>
                     <CardLeftRight>
-                      <FavButton className={style.fav_button} onClick={() => addToFavorites(product)}>
+                      <FavButton onClick={() => addToFavorites(product)}>
                       {favorites.find(fav => fav.id === product.id) ? '❤️' : '🤍'}
                       </FavButton>
                     </CardLeftRight>
@@ -71,8 +63,10 @@ export default function Home() {
           )
         }
         
+        
       </main>
       <Footer/>
-    </>
-  )
+      </>
+      
+      );
 }

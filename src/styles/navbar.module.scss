@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #FAF1E6;
+    padding: 1em;
+    display: flex;
+    max-width: 100%;
+    .nav_container{
+        display: flex;
+        justify-content: space-between;
+        gap: 2em;
+        .nav_item{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            .link{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+    
+}
+

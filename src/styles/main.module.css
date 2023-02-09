@@ -1,0 +1,110 @@
+.product_container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  padding: 2em;
+  -webkit-column-gap: 1em;
+          column-gap: 1em;
+  row-gap: 1em;
+}
+
+.product_container .card {
+  background-color: #FAF1E6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.product_container .card .card_image {
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 300px;
+  width: 100%;
+}
+
+.product_container .card .card_content {
+  width: 90%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product_container .card .card_content .card_title {
+  margin: 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.product_container .card .card_content .card_detail {
+  font-size: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1em;
+}
+
+.product_container .card .card_content .card_detail .card_left {
+  width: 50%;
+}
+
+.search_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  gap: 1em;
+}
+
+.search_container .search_input {
+  height: 22px;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search_container .search_button {
+  border: none;
+  background-color: #2DC1B0;
+  color: white;
+  font-size: 14px;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.search_container .search_button:hover {
+  color: #2DC1B0;
+  background-color: white;
+  border: 2px solid #2DC1B0;
+}
+/*# sourceMappingURL=main.module.css.map */
